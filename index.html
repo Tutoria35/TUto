@@ -637,6 +637,79 @@
             .offer-title { font-size: 2rem; }
             .trial-title { font-size: 2rem; }
             .final-cta-title { font-size: 2rem; }
+            
+            .hero-buttons,
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .products-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-cta {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-title { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="https://i.imgur.com/OhLTdmk.png" alt="Tutoria Logo" onerror="this.style.display='none'">
+                </div>
+                
+                <h1 class="hero-title">
+                    Las mejores herramientas para tu tesis<br>a precio de estudiante
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Accede a WriteHuman, Turnitin, ChatGPT Plus y más por hasta 
+                    <span class="text-urgent">70% menos</span>. 
+                    <span class="text-success">+500 estudiantes</span> ya confían en nosotros.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp('general')">
+                        🚀 ¡Conseguir acceso YA!
+                    </a>
+                    <a href="#productos" class="btn btn-outline">
+                        Ver herramientas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title fade-in">Todo lo que necesitas para tu investigación</h2>
+            
             <div class="benefits-grid">
                 <div class="benefit-card card fade-in">
                     <span class="benefit-icon">🎯</span>
@@ -677,6 +750,14 @@
                         <span class="text-success">+500 estudiantes</span> activos satisfechos. Resultados comprobados
                     </p>
                 </div>
+                
+                <div class="benefit-card card fade-in">
+                    <span class="benefit-icon">🎁</span>
+                    <h3 class="benefit-title">Prueba Gratis</h3>
+                    <p class="benefit-description">
+                        <span class="text-success">1 día gratis</span> siguiendo nuestras redes. Sin compromiso
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -686,157 +767,8 @@
         <div class="container">
             <h2 class="section-title fade-in">Elige tu herramienta ideal</h2>
             
-            <div class="products-grid">
-                <!-- WriteHuman -->
-                <div class="product-card card fade-in">
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">WriteHuman</h3>
-                            <p class="product-description">Humanizador potente anti-IA</p>
-                        </div>
-                        <div class="product-price">S/25</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: $48 | <span class="text-success">Ahorras: S/101 (81%)</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ Humanizador potente<br>
-                        ✓ Evita detección de IA
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('WriteHuman')">
-                        Conseguir ahora
-                    </a>
-                </div>
-
-                <!-- Turnitin Estudiante -->
-                <div class="product-card card fade-in">
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">Turnitin Estudiante</h3>
-                            <p class="product-description">Reporte personal con tu correo</p>
-                        </div>
-                        <div class="product-price">S/20</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: Variable | <span class="text-success">Acceso exclusivo</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ Reporte con tu correo<br>
-                        ✓ Usado por universidades
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Turnitin Estudiante')">
-                        Conseguir ahora
-                    </a>
-                </div>
-
-                <!-- Turnitin + IA (Popular) -->
-                <div class="product-card card fade-in" style="border-color: var(--accent-color);">
-                    <div class="popular-badge">POPULAR</div>
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">Turnitin + Detección IA</h3>
-                            <p class="product-description">Reportes ilimitados similitud + IA</p>
-                        </div>
-                        <div class="product-price">S/23</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: Variable | <span class="text-success">Función premium</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ Reportes ilimitados<br>
-                        ✓ Detección de IA incluida
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Turnitin con IA')">
-                        Conseguir ahora
-                    </a>
-                </div>
-
-                <!-- ChatGPT Plus -->
-                <div class="product-card card fade-in">
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">ChatGPT Plus</h3>
-                            <p class="product-description">IA avanzada para investigación</p>
-                        </div>
-                        <div class="product-price">S/10</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: $20 | <span class="text-success">Ahorras: S/55 (85%)</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ GPT-4 incluido<br>
-                        ✓ Sin límites de uso
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('ChatGPT Plus')">
-                        Conseguir ahora
-                    </a>
-                </div>
-
-                <!-- Quillbot Premium -->
-                <div class="product-card card fade-in">
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">Quillbot Premium</h3>
-                            <p class="product-description">Reduce similitud eficazmente</p>
-                        </div>
-                        <div class="product-price">S/10</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: $10 | <span class="text-success">Mismo precio, cuenta segura</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ Parafraseo avanzado<br>
-                        ✓ Múltiples modos
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Quillbot Premium')">
-                        Conseguir ahora
-                    </a>
-                </div>
-
-                <!-- Perplexity Pro -->
-                <div class="product-card card fade-in">
-                    <div class="product-header">
-                        <div>
-                            <h3 class="product-name">Perplexity Pro</h3>
-                            <p class="product-description">Múltiples modelos IA investigación</p>
-                        </div>
-                        <div class="product-price">S/10</div>
-                    </div>
-                    
-                    <div class="product-comparison">
-                        Precio oficial: $20 | <span class="text-success">Ahorras: S/55 (85%)</span>
-                    </div>
-                    
-                    <div class="product-features">
-                        ✓ 1 mes completo<br>
-                        ✓ Claude, GPT-4 y más<br>
-                        ✓ Búsquedas avanzadas
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Perplexity Pro')">
-                        Conseguir ahora
-                    </a>
-                </div>
+            <div class="products-grid" id="products-container">
+                <!-- Los productos se cargarán dinámicamente -->
             </div>
             
             <div style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-light); font-size: 0.9rem;">
@@ -874,36 +806,8 @@
         <div class="container">
             <h2 class="section-title fade-in">Mira cómo funciona</h2>
             
-            <div class="demo-grid">
-                <div class="demo-card card fade-in">
-                    <div class="demo-video" id="video-demo-principal">
-                        <div class="demo-placeholder">
-                            📹 Video Demo Principal<br>
-                            <small>Proceso completo del servicio</small>
-                        </div>
-                    </div>
-                    <h4 class="demo-title">Proceso completo: Desde pedido hasta acceso</h4>
-                </div>
-                
-                <div class="demo-card card fade-in">
-                    <div class="demo-video" id="video-turnitin">
-                        <div class="demo-placeholder">
-                            📹 Video Turnitin<br>
-                            <small>Cómo usar Turnitin</small>
-                        </div>
-                    </div>
-                    <h4 class="demo-title">Cómo usar Turnitin para tu tesis</h4>
-                </div>
-                
-                <div class="demo-card card fade-in">
-                    <div class="demo-video" id="video-chatgpt">
-                        <div class="demo-placeholder">
-                            📹 Video ChatGPT<br>
-                            <small>ChatGPT Plus demo</small>
-                        </div>
-                    </div>
-                    <h4 class="demo-title">ChatGPT Plus para investigación</h4>
-                </div>
+            <div class="demo-grid" id="videos-container">
+                <!-- Los videos se cargarán dinámicamente -->
             </div>
         </div>
     </section>
@@ -913,94 +817,8 @@
         <div class="container">
             <h2 class="section-title fade-in">Lo que dicen nuestros usuarios</h2>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-1">
-                        📷 Testimonio 1<br>
-                        <small>Chat de cliente satisfecho</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Proceso de entrega súper rápido y confiable"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-2">
-                        📷 Testimonio 2<br>
-                        <small>Proceso de entrega</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Acceso inmediato, tal como prometen"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-3">
-                        📷 Testimonio 3<br>
-                        <small>Cliente satisfecho</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Excelente soporte, resuelven todo rápido"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-4">
-                        📷 Testimonio 4<br>
-                        <small>Experiencia positiva</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Me ayudaron con mi tesis, súper recomendado"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-5">
-                        📷 Testimonio 5<br>
-                        <small>Cliente frecuente</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Ya voy comprando por tercera vez, muy confiable"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-6">
-                        📷 Testimonio 6<br>
-                        <small>Satisfacción total</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Precio excelente y servicio de calidad"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-7">
-                        📷 Testimonio 7<br>
-                        <small>Resultado exitoso</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"Las herramientas funcionan perfectamente"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card card fade-in">
-                    <div class="testimonial-image" id="testimonio-8">
-                        📷 Testimonio 8<br>
-                        <small>Recomendación</small>
-                    </div>
-                    <div class="testimonial-content">
-                        <p>"100% recomendado para estudiantes"</p>
-                        <div class="testimonial-source">Cliente verificado</div>
-                    </div>
-                </div>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Los testimonios se cargarán dinámicamente -->
             </div>
         </div>
     </section>
@@ -1108,77 +926,179 @@
             </div>
         </div>
     </div>
-</body>
-</html>.hero-buttons,
-            .final-cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .products-grid,
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .sticky-cta {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero-title { font-size: 1.8rem; }
-            .section-title { font-size: 1.8rem; }
-        }
-    </style>
-</head>
 
-<body>
     <script>
-        // CONFIGURACIÓN
+        // ========================================
+        // CONFIGURACIÓN FÁCIL DE EDITAR
+        // ========================================
+        
         const CONFIG = {
+            // Números de WhatsApp (sin espacios ni guiones)
             whatsapp: {
-                main: '51936197473',
-                secondary: '51904285224'
+                main: '51936197473',      // WhatsApp principal
+                secondary: '51904285224'   // WhatsApp secundario
             },
+            
+            // URL del logo
             logo: 'https://i.imgur.com/OhLTdmk.png',
-            videos: {
-                demo_principal: 'VIDEO_YOUTUBE_1',
-                turnitin: 'VIDEO_YOUTUBE_2',
-                chatgpt: 'VIDEO_YOUTUBE_3',
-                writehuman: 'VIDEO_YOUTUBE_4'
-            },
-            testimonials: {
-                image1: 'https://i.imgur.com/VLMCtcD.png',
-                image2: 'https://i.imgur.com/gU45hHq.png',
-                image3: 'https://i.imgur.com/OU7Yo7j.png',
-                image4: 'https://i.imgur.com/2ijcALl.png',
-                image5: 'https://i.imgur.com/0H9T16M.png',
-                image6: 'https://i.imgur.com/GeHBu6F.png',
-                image7: 'https://i.imgur.com/VhJhLw8.png',
-                image8: 'https://i.imgur.com/Yh7K1mN.png'
-            }
+            
+            // Lista de productos
+            products: [
+                {
+                    name: 'WriteHuman',
+                    description: 'Humanizador potente anti-IA',
+                    price: 'S/25',
+                    officialPrice: '$48',
+                    savings: 'S/101 (81%)',
+                    features: [
+                        '1 mes completo',
+                        'Humanizador potente',
+                        'Evita detección de IA'
+                    ],
+                    popular: false
+                },
+                {
+                    name: 'Turnitin Estudiante',
+                    description: 'Reporte personal con tu correo',
+                    price: 'S/20',
+                    officialPrice: 'Variable',
+                    savings: 'Acceso exclusivo',
+                    features: [
+                        '1 mes completo',
+                        'Reporte con tu correo',
+                        'Usado por universidades'
+                    ],
+                    popular: false
+                },
+                {
+                    name: 'Turnitin + Detección IA',
+                    description: 'Reportes ilimitados similitud + IA',
+                    price: 'S/23',
+                    officialPrice: 'Variable',
+                    savings: 'Función premium',
+                    features: [
+                        '1 mes completo',
+                        'Reportes ilimitados',
+                        'Detección de IA incluida'
+                    ],
+                    popular: true
+                },
+                {
+                    name: 'ChatGPT Plus',
+                    description: 'IA avanzada para investigación',
+                    price: 'S/10',
+                    officialPrice: '$20',
+                    savings: 'S/55 (85%)',
+                    features: [
+                        '1 mes completo',
+                        'GPT-4 incluido',
+                        'Sin límites de uso'
+                    ],
+                    popular: false
+                },
+                {
+                    name: 'Quillbot Premium',
+                    description: 'Reduce similitud eficazmente',
+                    price: 'S/10',
+                    officialPrice: '$10',
+                    savings: 'Mismo precio, cuenta segura',
+                    features: [
+                        '1 mes completo',
+                        'Parafraseo avanzado',
+                        'Múltiples modos'
+                    ],
+                    popular: false
+                },
+                {
+                    name: 'Perplexity Pro',
+                    description: 'Múltiples modelos IA investigación',
+                    price: 'S/10',
+                    officialPrice: '$20',
+                    savings: 'S/55 (85%)',
+                    features: [
+                        '1 mes completo',
+                        'Claude, GPT-4 y más',
+                        'Búsquedas avanzadas'
+                    ],
+                    popular: false
+                }
+            ],
+            
+            // Videos de YouTube (reemplaza VIDEO_ID con el ID real del video)
+            videos: [
+                {
+                    id: 'dQw4w9WgXcQ', // Reemplaza con tu ID de video
+                    title: 'Proceso completo: Desde pedido hasta acceso',
+                    placeholder: '📹 Video Demo Principal'
+                },
+                {
+                    id: 'dQw4w9WgXcQ', // Reemplaza con tu ID de video
+                    title: 'Cómo usar Turnitin para tu tesis',
+                    placeholder: '📹 Video Turnitin'
+                },
+                {
+                    id: 'dQw4w9WgXcQ', // Reemplaza con tu ID de video
+                    title: 'ChatGPT Plus para investigación',
+                    placeholder: '📹 Video ChatGPT'
+                }
+            ],
+            
+            // Testimonios (URLs de imágenes)
+            testimonials: [
+                {
+                    image: 'https://i.imgur.com/VLMCtcD.png',
+                    text: 'Proceso de entrega súper rápido y confiable',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/gU45hHq.png',
+                    text: 'Acceso inmediato, tal como prometen',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/OU7Yo7j.png',
+                    text: 'Excelente soporte, resuelven todo rápido',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/2ijcALl.png',
+                    text: 'Me ayudaron con mi tesis, súper recomendado',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/0H9T16M.png',
+                    text: 'Ya voy comprando por tercera vez, muy confiable',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/GeHBu6F.png',
+                    text: 'Precio excelente y servicio de calidad',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/VhJhLw8.png',
+                    text: 'Las herramientas funcionan perfectamente',
+                    source: 'Cliente verificado'
+                },
+                {
+                    image: 'https://i.imgur.com/Yh7K1mN.png',
+                    text: '100% recomendado para estudiantes',
+                    source: 'Cliente verificado'
+                }
+            ]
         };
 
-        // FUNCIONES
+        // ========================================
+        // FUNCIONES DEL SISTEMA (No editar)
+        // ========================================
+        
+        // Función para abrir WhatsApp
         function openWhatsApp(product, useSecondary = false) {
             const phone = useSecondary ? CONFIG.whatsapp.secondary : CONFIG.whatsapp.main;
             const messages = {
                 'WriteHuman': 'Hola, quiero WriteHuman por S/25. ¿Cómo procedo?',
                 'Turnitin Estudiante': 'Hola, quiero Turnitin Estudiante por S/20. ¿Cómo procedo?',
-                'Turnitin con IA': 'Hola, quiero Turnitin con Detección IA por S/23. ¿Cómo procedo?',
+                'Turnitin + Detección IA': 'Hola, quiero Turnitin con Detección IA por S/23. ¿Cómo procedo?',
                 'ChatGPT Plus': 'Hola, quiero ChatGPT Plus por S/10. ¿Cómo procedo?',
                 'Quillbot Premium': 'Hola, quiero Quillbot Premium por S/10. ¿Cómo procedo?',
                 'Perplexity Pro': 'Hola, quiero Perplexity Pro por S/10. ¿Cómo procedo?',
@@ -1193,6 +1113,7 @@
             window.open(url, '_blank');
         }
         
+        // Función para actualizar el contador
         function updateCountdown() {
             const now = new Date();
             const tomorrow = new Date(now);
@@ -1209,6 +1130,75 @@
             }
         }
         
+        // Función para cargar productos
+        function loadProducts() {
+            const container = document.getElementById('products-container');
+            if (!container) return;
+            
+            container.innerHTML = CONFIG.products.map(product => `
+                <div class="product-card card fade-in" ${product.popular ? 'style="border-color: var(--accent-color);"' : ''}>
+                    ${product.popular ? '<div class="popular-badge">POPULAR</div>' : ''}
+                    <div class="product-header">
+                        <div>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                        </div>
+                        <div class="product-price">${product.price}</div>
+                    </div>
+                    
+                    <div class="product-comparison">
+                        Precio oficial: ${product.officialPrice} | <span class="text-success">Ahorras: ${product.savings}</span>
+                    </div>
+                    
+                    <div class="product-features">
+                        ${product.features.map(feature => `✓ ${feature}`).join('<br>')}
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('${product.name}')">
+                        Conseguir ahora
+                    </a>
+                </div>
+            `).join('');
+        }
+        
+        // Función para cargar videos
+        function loadVideos() {
+            const container = document.getElementById('videos-container');
+            if (!container) return;
+            
+            container.innerHTML = CONFIG.videos.map(video => `
+                <div class="demo-card card fade-in">
+                    <div class="demo-video">
+                        ${video.id && video.id !== 'VIDEO_ID' ? 
+                            `<iframe src="https://www.youtube.com/embed/${video.id}" frameborder="0" allowfullscreen loading="lazy"></iframe>` :
+                            `<div class="demo-placeholder">${video.placeholder}<br><small>Video próximamente</small></div>`
+                        }
+                    </div>
+                    <h4 class="demo-title">${video.title}</h4>
+                </div>
+            `).join('');
+        }
+        
+        // Función para cargar testimonios
+        function loadTestimonials() {
+            const container = document.getElementById('testimonials-container');
+            if (!container) return;
+            
+            container.innerHTML = CONFIG.testimonials.map(testimonial => `
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" 
+                         style="background-image: url('${testimonial.image}')"
+                         onclick="window.open('${testimonial.image}', '_blank')">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"${testimonial.text}"</p>
+                        <div class="testimonial-source">${testimonial.source}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Función para inicializar animaciones
         function initAnimations() {
             const observerOptions = {
                 threshold: 0.1,
@@ -1228,6 +1218,7 @@
             });
         }
         
+        // Función para sticky CTA móvil
         function initStickyCTA() {
             let lastScrollTop = 0;
             const stickyCTA = document.getElementById('sticky-cta');
@@ -1254,37 +1245,23 @@
                 lastScrollTop = scrollTop;
             });
         }
-        
-        function loadTestimonials() {
-            Object.keys(CONFIG.testimonials).forEach((key, index) => {
-                const element = document.getElementById(`testimonio-${index + 1}`);
-                if (element && CONFIG.testimonials[key]) {
-                    element.style.backgroundImage = `url(${CONFIG.testimonials[key]})`;
-                    element.innerHTML = '';
-                    element.onclick = function() {
-                        window.open(CONFIG.testimonials[key], '_blank');
-                    };
-                }
-            });
-        }
-        
-        function loadVideos() {
-            Object.keys(CONFIG.videos).forEach(key => {
-                const element = document.getElementById(`video-${key.replace('_', '-')}`);
-                if (element && CONFIG.videos[key] && !CONFIG.videos[key].includes('VIDEO_YOUTUBE')) {
-                    element.innerHTML = `<iframe width="100%" height="200" src="${CONFIG.videos[key]}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-                }
-            });
-        }
 
+        // ========================================
         // INICIALIZACIÓN
+        // ========================================
+        
         document.addEventListener('DOMContentLoaded', function() {
-            loadTestimonials();
+            // Cargar contenido dinámico
+            loadProducts();
             loadVideos();
+            loadTestimonials();
+            
+            // Inicializar funcionalidades
             updateCountdown();
             initAnimations();
             initStickyCTA();
             
+            // Actualizar contador cada minuto
             setInterval(updateCountdown, 60000);
             
             // Smooth scrolling
@@ -1299,38 +1276,5 @@
             });
         });
     </script>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="https://i.imgur.com/OhLTdmk.png" alt="Tutoria Logo" onerror="this.innerHTML='T'">
-                </div>
-                
-                <h1 class="hero-title">
-                    Las mejores herramientas para tu tesis en un solo lugar y a precio de estudiante
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Accede a WriteHuman, Turnitin, ChatGPT Plus y más por hasta 
-                    <span class="text-urgent">70% menos</span>. 
-                    <span class="text-success">+500 estudiantes</span> ya confían en nosotros.
-                </p>
-                
-                <div class="hero-buttons">
-                    <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp('general')">
-                        🚀 ¡Conseguir acceso YA!
-                    </a>
-                    <a href="#productos" class="btn btn-outline">
-                        Ver herramientas
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS SECTION -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title fade-in">Todo lo que necesitas para tu investigación</h2>
+</body>
+</html>
