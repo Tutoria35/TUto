@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutoria - Las mejores herramientas para tu tesis a precio de estudiante</title>
     <meta name="description" content="Accede a WriteHuman, Turnitin, ChatGPT Plus y más por hasta 70% menos. +500 estudiantes ya confían en nosotros.">
+    <meta name="keywords" content="turnitin, chatgpt plus, writehuman, quillbot, perplexity, tesis, investigación">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tutoria - Herramientas para tu tesis">
+    <meta property="og:description" content="Ahorra hasta 70% en herramientas de investigación">
+    <meta property="og:image" content="https://i.imgur.com/OhLTdmk.png">
+    <meta property="og:url" content="https://t-uto.vercel.app">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2317A2B8'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='60' font-family='Arial'>T</text></svg>">
     
     <style>
         :root {
@@ -19,10 +29,17 @@
             --bg-white: #ffffff;
             --bg-light: #f8f9fa;
             --bg-dark: #2c3e50;
+            --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
             --spacing-md: 1.5rem;
             --spacing-lg: 2rem;
             --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            --border-radius: 20px;
+            --border-radius-small: 10px;
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --box-shadow-hover: 0 15px 40px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -44,16 +61,29 @@
             padding: 0 var(--spacing-md);
         }
 
+        /* ANIMACIONES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BOTONES */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: var(--spacing-xs);
             padding: 18px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
             text-align: center;
@@ -90,7 +120,24 @@
             background: linear-gradient(135deg, var(--whatsapp-color), #1da851);
             color: var(--text-white);
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            position: relative;
+            overflow: hidden;
             font-weight: 700;
+        }
+        
+        .btn-whatsapp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .btn-whatsapp:hover::before {
+            left: 100%;
         }
         
         .btn-whatsapp:hover {
@@ -103,21 +150,21 @@
             text-align: center;
             font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
             color: var(--text-dark);
         }
         
         .card {
             background: var(--bg-white);
-            border-radius: 20px;
+            border-radius: var(--border-radius);
             padding: var(--spacing-xl);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--box-shadow-hover);
         }
 
         /* HERO SECTION */
@@ -127,6 +174,17 @@
             padding: 80px 0;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="30" cy="30" r="1.5" fill="white" opacity="0.1"/><circle cx="70" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="2" fill="white" opacity="0.1"/></svg>');
         }
         
         .hero-content {
@@ -162,7 +220,7 @@
         
         .hero-subtitle {
             font-size: 1.3rem;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
             opacity: 0.95;
             max-width: 800px;
             margin-left: auto;
@@ -243,7 +301,7 @@
             font-size: 1.3rem;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--spacing-xs);
         }
         
         .product-description {
@@ -260,7 +318,7 @@
         .product-comparison {
             background: #e8f5e8;
             padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: 10px;
+            border-radius: var(--border-radius-small);
             margin-bottom: var(--spacing-md);
             font-size: 0.9rem;
         }
@@ -293,6 +351,13 @@
             color: var(--text-white);
             padding: 60px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-content {
+            position: relative;
+            z-index: 2;
         }
         
         .offer-badge {
@@ -315,6 +380,186 @@
             font-size: 1.3rem;
             margin-bottom: var(--spacing-lg);
         }
+        
+        .offer-countdown {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+
+        /* DEMO SECTION */
+        .demo {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: 50px;
+        }
+        
+        .demo-card {
+            overflow: hidden;
+        }
+        
+        .demo-video {
+            width: 100%;
+            height: 200px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .demo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            text-align: center;
+        }
+        
+        .demo-title {
+            padding: var(--spacing-md);
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* TESTIMONIALS SECTION */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            padding: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        .testimonial-image {
+            width: 100%;
+            height: 300px;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0);
+            transition: var(--transition);
+        }
+        
+        .testimonial-image:hover::before {
+            background: rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-content {
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .testimonial-source {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* FREE TRIAL SECTION */
+        .free-trial {
+            background: linear-gradient(135deg, var(--secondary-color), #20c997);
+            color: var(--text-white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .trial-title {
+            font-size: 2.3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .trial-description {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.95;
+        }
+
+        /* FAQ SECTION */
+        .faq {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        
+        .faq-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 15px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .faq-answer {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
 
         /* FINAL CTA */
         .final-cta {
@@ -332,7 +577,7 @@
         
         .final-cta-subtitle {
             font-size: 1.2rem;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-xxl);
             opacity: 0.9;
         }
         
@@ -350,9 +595,39 @@
             line-height: 1.8;
         }
 
+        /* STICKY CTA (MÓVIL) */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary-color);
+            padding: 15px var(--spacing-md);
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .sticky-cta-content {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+        
+        .sticky-cta .btn {
+            flex: 1;
+            padding: 12px;
+        }
+
         /* UTILITIES */
         .text-success { color: var(--secondary-color); font-weight: 600; }
         .text-urgent { color: var(--accent-color); font-weight: 600; }
+        .bg-highlight { 
+            background: rgba(255, 235, 59, 0.3); 
+            padding: 2px 4px; 
+            border-radius: 4px; 
+        }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -360,78 +635,10 @@
             .hero-subtitle { font-size: 1.1rem; }
             .section-title { font-size: 2.2rem; }
             .offer-title { font-size: 2rem; }
+            .trial-title { font-size: 2rem; }
             .final-cta-title { font-size: 2rem; }
-            
-            .hero-buttons,
-            .final-cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .products-grid,
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 var(--spacing-sm);
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            .hero-title { font-size: 1.8rem; }
-            .section-title { font-size: 1.8rem; }
-        }
-    </style>
-</head>
-
-<body>
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="https://i.imgur.com/OhLTdmk.png" alt="Tutoria Logo" onerror="this.innerHTML='T'">
-                </div>
-                
-                <h1 class="hero-title">
-                    Las mejores herramientas para tu tesis en un solo lugar y a precio de estudiante
-                </h1>
-                
-                <p class="hero-subtitle">
-                    Accede a WriteHuman, Turnitin, ChatGPT Plus y más por hasta 
-                    <span class="text-urgent">70% menos</span>. 
-                    <span class="text-success">+500 estudiantes</span> ya confían en nosotros.
-                </p>
-                
-                <div class="hero-buttons">
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20conseguir%20acceso%20a%20las%20herramientas%20para%20mi%20tesis" class="btn btn-whatsapp">
-                        🚀 ¡Conseguir acceso YA!
-                    </a>
-                    <a href="#productos" class="btn btn-outline">
-                        Ver herramientas
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS SECTION -->
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">Todo lo que necesitas para tu investigación</h2>
-            
             <div class="benefits-grid">
-                <div class="benefit-card card">
+                <div class="benefit-card card fade-in">
                     <span class="benefit-icon">🎯</span>
                     <h3 class="benefit-title">Ahorro Real</h3>
                     <p class="benefit-description">
@@ -439,7 +646,7 @@
                     </p>
                 </div>
                 
-                <div class="benefit-card card">
+                <div class="benefit-card card fade-in">
                     <span class="benefit-icon">⚡</span>
                     <h3 class="benefit-title">Acceso Inmediato</h3>
                     <p class="benefit-description">
@@ -447,15 +654,15 @@
                     </p>
                 </div>
                 
-                <div class="benefit-card card">
+                <div class="benefit-card card fade-in">
                     <span class="benefit-icon">🛡️</span>
                     <h3 class="benefit-title">Tecnología Segura</h3>
                     <p class="benefit-description">
-                        <strong>Dicloak</strong> evita baneos y problemas. Cuentas compartidas de forma segura
+                        <span class="bg-highlight">Dicloak</span> evita baneos y problemas. Cuentas compartidas de forma segura
                     </p>
                 </div>
                 
-                <div class="benefit-card card">
+                <div class="benefit-card card fade-in">
                     <span class="benefit-icon">📞</span>
                     <h3 class="benefit-title">Soporte Personal</h3>
                     <p class="benefit-description">
@@ -463,7 +670,7 @@
                     </p>
                 </div>
                 
-                <div class="benefit-card card">
+                <div class="benefit-card card fade-in">
                     <span class="benefit-icon">✅</span>
                     <h3 class="benefit-title">Probado</h3>
                     <p class="benefit-description">
@@ -477,11 +684,11 @@
     <!-- PRODUCTS SECTION -->
     <section class="products" id="productos">
         <div class="container">
-            <h2 class="section-title">Elige tu herramienta ideal</h2>
+            <h2 class="section-title fade-in">Elige tu herramienta ideal</h2>
             
             <div class="products-grid">
                 <!-- WriteHuman -->
-                <div class="product-card card">
+                <div class="product-card card fade-in">
                     <div class="product-header">
                         <div>
                             <h3 class="product-name">WriteHuman</h3>
@@ -500,13 +707,13 @@
                         ✓ Evita detección de IA
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20WriteHuman%20por%20S/25.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('WriteHuman')">
                         Conseguir ahora
                     </a>
                 </div>
 
                 <!-- Turnitin Estudiante -->
-                <div class="product-card card">
+                <div class="product-card card fade-in">
                     <div class="product-header">
                         <div>
                             <h3 class="product-name">Turnitin Estudiante</h3>
@@ -525,13 +732,13 @@
                         ✓ Usado por universidades
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20Turnitin%20Estudiante%20por%20S/20.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Turnitin Estudiante')">
                         Conseguir ahora
                     </a>
                 </div>
 
                 <!-- Turnitin + IA (Popular) -->
-                <div class="product-card card" style="border-color: var(--accent-color);">
+                <div class="product-card card fade-in" style="border-color: var(--accent-color);">
                     <div class="popular-badge">POPULAR</div>
                     <div class="product-header">
                         <div>
@@ -551,13 +758,13 @@
                         ✓ Detección de IA incluida
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20Turnitin%20con%20Detección%20IA%20por%20S/23.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Turnitin con IA')">
                         Conseguir ahora
                     </a>
                 </div>
 
                 <!-- ChatGPT Plus -->
-                <div class="product-card card">
+                <div class="product-card card fade-in">
                     <div class="product-header">
                         <div>
                             <h3 class="product-name">ChatGPT Plus</h3>
@@ -576,13 +783,13 @@
                         ✓ Sin límites de uso
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20ChatGPT%20Plus%20por%20S/10.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('ChatGPT Plus')">
                         Conseguir ahora
                     </a>
                 </div>
 
                 <!-- Quillbot Premium -->
-                <div class="product-card card">
+                <div class="product-card card fade-in">
                     <div class="product-header">
                         <div>
                             <h3 class="product-name">Quillbot Premium</h3>
@@ -601,13 +808,13 @@
                         ✓ Múltiples modos
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20Quillbot%20Premium%20por%20S/10.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Quillbot Premium')">
                         Conseguir ahora
                     </a>
                 </div>
 
                 <!-- Perplexity Pro -->
-                <div class="product-card card">
+                <div class="product-card card fade-in">
                     <div class="product-header">
                         <div>
                             <h3 class="product-name">Perplexity Pro</h3>
@@ -626,13 +833,13 @@
                         ✓ Búsquedas avanzadas
                     </div>
                     
-                    <a href="https://wa.me/51936197473?text=Hola,%20quiero%20Perplexity%20Pro%20por%20S/10.%20¿Cómo%20procedo?" class="btn btn-primary product-button">
+                    <a href="#" class="btn btn-primary product-button" onclick="openWhatsApp('Perplexity Pro')">
                         Conseguir ahora
                     </a>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: 0.9rem;">
+            <div style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-light); font-size: 0.9rem;">
                 <strong>Nota:</strong> Todos los precios son mensuales. También disponible plan de 15 días.
             </div>
         </div>
@@ -641,20 +848,227 @@
     <!-- SPECIAL OFFER SECTION -->
     <section class="special-offer">
         <div class="container">
-            <div class="offer-badge">🎯 OFERTA DEL DÍA</div>
-            
-            <h2 class="offer-title">
-                Turnitin + Perplexity Pro GRATIS
-            </h2>
-            
-            <div class="offer-details">
-                Compra Turnitin por S/23 y llévate Perplexity Pro completamente gratis<br>
-                <strong style="font-size: 1.5rem;">Ahorro total: S/10</strong>
+            <div class="offer-content">
+                <div class="offer-badge">🎯 OFERTA DEL DÍA</div>
+                
+                <h2 class="offer-title">
+                    Turnitin + Perplexity Pro GRATIS
+                </h2>
+                
+                <div class="offer-details">
+                    Compra Turnitin por S/23 y llévate Perplexity Pro completamente gratis<br>
+                    <strong style="font-size: 1.5rem;">Ahorro total: S/10</strong>
+                </div>
+                
+                <div class="offer-countdown" id="countdown">⏰ Termina en...</div>
+                
+                <a href="#" class="btn btn-primary" onclick="openWhatsApp('oferta especial')">
+                    🔥 Aprovechar oferta ahora
+                </a>
             </div>
+        </div>
+    </section>
+
+    <!-- DEMO SECTION -->
+    <section class="demo">
+        <div class="container">
+            <h2 class="section-title fade-in">Mira cómo funciona</h2>
             
-            <a href="https://wa.me/51936197473?text=Hola,%20quiero%20la%20OFERTA%20DEL%20DÍA:%20Turnitin%20+%20Perplexity%20GRATIS.%20¿Cómo%20procedo?" class="btn btn-primary">
-                🔥 Aprovechar oferta ahora
+            <div class="demo-grid">
+                <div class="demo-card card fade-in">
+                    <div class="demo-video" id="video-demo-principal">
+                        <div class="demo-placeholder">
+                            📹 Video Demo Principal<br>
+                            <small>Proceso completo del servicio</small>
+                        </div>
+                    </div>
+                    <h4 class="demo-title">Proceso completo: Desde pedido hasta acceso</h4>
+                </div>
+                
+                <div class="demo-card card fade-in">
+                    <div class="demo-video" id="video-turnitin">
+                        <div class="demo-placeholder">
+                            📹 Video Turnitin<br>
+                            <small>Cómo usar Turnitin</small>
+                        </div>
+                    </div>
+                    <h4 class="demo-title">Cómo usar Turnitin para tu tesis</h4>
+                </div>
+                
+                <div class="demo-card card fade-in">
+                    <div class="demo-video" id="video-chatgpt">
+                        <div class="demo-placeholder">
+                            📹 Video ChatGPT<br>
+                            <small>ChatGPT Plus demo</small>
+                        </div>
+                    </div>
+                    <h4 class="demo-title">ChatGPT Plus para investigación</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Lo que dicen nuestros usuarios</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-1">
+                        📷 Testimonio 1<br>
+                        <small>Chat de cliente satisfecho</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Proceso de entrega súper rápido y confiable"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-2">
+                        📷 Testimonio 2<br>
+                        <small>Proceso de entrega</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Acceso inmediato, tal como prometen"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-3">
+                        📷 Testimonio 3<br>
+                        <small>Cliente satisfecho</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Excelente soporte, resuelven todo rápido"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-4">
+                        📷 Testimonio 4<br>
+                        <small>Experiencia positiva</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Me ayudaron con mi tesis, súper recomendado"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-5">
+                        📷 Testimonio 5<br>
+                        <small>Cliente frecuente</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Ya voy comprando por tercera vez, muy confiable"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-6">
+                        📷 Testimonio 6<br>
+                        <small>Satisfacción total</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Precio excelente y servicio de calidad"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-7">
+                        📷 Testimonio 7<br>
+                        <small>Resultado exitoso</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Las herramientas funcionan perfectamente"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card card fade-in">
+                    <div class="testimonial-image" id="testimonio-8">
+                        📷 Testimonio 8<br>
+                        <small>Recomendación</small>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"100% recomendado para estudiantes"</p>
+                        <div class="testimonial-source">Cliente verificado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE TRIAL SECTION -->
+    <section class="free-trial">
+        <div class="container">
+            <h2 class="trial-title">¿Primera vez? Prueba gratis</h2>
+            
+            <p class="trial-description">
+                Consigue <span style="background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 4px;">1 día gratis</span> de cualquier herramienta<br>
+                Solo síguenos en redes sociales + deja un comentario positivo
+            </p>
+            
+            <a href="#" class="btn btn-primary" onclick="openWhatsApp('día gratis')">
+                🎁 Conseguir día gratis
             </a>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Preguntas frecuentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Es seguro usar estas cuentas?</h3>
+                    <p class="faq-answer">
+                        Utilizamos tecnología <strong>Dicloak</strong>, especialmente diseñada para compartir cuentas de forma segura sin riesgo de baneo. Es completamente seguro y confiable.
+                    </p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Cuándo recibo el acceso?</h3>
+                    <p class="faq-answer">
+                        Acceso <strong>inmediato</strong>. En menos de 10 minutos tienes todo funcionando y puedes empezar a usar las herramientas.
+                    </p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Qué pasa si tengo problemas?</h3>
+                    <p class="faq-answer">
+                        Soporte personal <strong>9am-12am</strong> todos los días. Si hay caídas mundiales de las plataformas, trabajamos hasta solucionarlo.
+                    </p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Puedo cambiar de herramienta?</h3>
+                    <p class="faq-answer">
+                        Claro, contáctanos por WhatsApp y coordinamos el cambio. Siempre estamos para ayudarte.
+                    </p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Cómo funcionan las cuentas compartidas?</h3>
+                    <p class="faq-answer">
+                        Usamos el navegador <strong>Dicloak</strong> que permite acceso seguro sin interferir con otras cuentas. Tu acceso es privado y seguro.
+                    </p>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <h3 class="faq-question">¿Hay plan de 15 días?</h3>
+                    <p class="faq-answer">
+                        Sí, todos nuestros servicios también están disponibles por <strong>15 días</strong>. Contáctanos para conocer los precios.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -668,20 +1082,255 @@
             </p>
             
             <div class="final-cta-buttons">
-                <a href="https://wa.me/51936197473?text=Hola,%20quiero%20conseguir%20acceso%20a%20las%20herramientas%20para%20mi%20tesis" class="btn btn-whatsapp">
+                <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp('general')">
                     🚀 ¡Empezar ahora mismo!
                 </a>
-                <a href="https://wa.me/51904285224?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20herramientas" class="btn btn-outline">
+                <a href="#" class="btn btn-outline" onclick="openWhatsApp('consulta', true)">
                     💬 Hacer consulta
                 </a>
             </div>
             
             <div class="contact-info">
-                📞 Atención: 9am - 12am | Próximamente 24/7<br>
-                📱 WhatsApp principal: +51 936 197 473<br>
-                📱 WhatsApp alternativo: +51 904 285 224
+                📞 Atención: <span>9am - 12am</span> | Próximamente 24/7<br>
+                📱 WhatsApp principal: <span>+51 936 197 473</span><br>
+                📱 WhatsApp alternativo: <span>+51 904 285 224</span>
             </div>
         </div>
     </section>
+
+    <!-- STICKY CTA (MÓVIL) -->
+    <div class="sticky-cta" id="sticky-cta">
+        <div class="container">
+            <div class="sticky-cta-content">
+                <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp('general')">
+                    🚀 ¡Conseguir acceso YA!
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+</html>.hero-buttons,
+            .final-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .products-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sticky-cta {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-title { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // CONFIGURACIÓN
+        const CONFIG = {
+            whatsapp: {
+                main: '51936197473',
+                secondary: '51904285224'
+            },
+            logo: 'https://i.imgur.com/OhLTdmk.png',
+            videos: {
+                demo_principal: 'VIDEO_YOUTUBE_1',
+                turnitin: 'VIDEO_YOUTUBE_2',
+                chatgpt: 'VIDEO_YOUTUBE_3',
+                writehuman: 'VIDEO_YOUTUBE_4'
+            },
+            testimonials: {
+                image1: 'https://i.imgur.com/VLMCtcD.png',
+                image2: 'https://i.imgur.com/gU45hHq.png',
+                image3: 'https://i.imgur.com/OU7Yo7j.png',
+                image4: 'https://i.imgur.com/2ijcALl.png',
+                image5: 'https://i.imgur.com/0H9T16M.png',
+                image6: 'https://i.imgur.com/GeHBu6F.png',
+                image7: 'https://i.imgur.com/VhJhLw8.png',
+                image8: 'https://i.imgur.com/Yh7K1mN.png'
+            }
+        };
+
+        // FUNCIONES
+        function openWhatsApp(product, useSecondary = false) {
+            const phone = useSecondary ? CONFIG.whatsapp.secondary : CONFIG.whatsapp.main;
+            const messages = {
+                'WriteHuman': 'Hola, quiero WriteHuman por S/25. ¿Cómo procedo?',
+                'Turnitin Estudiante': 'Hola, quiero Turnitin Estudiante por S/20. ¿Cómo procedo?',
+                'Turnitin con IA': 'Hola, quiero Turnitin con Detección IA por S/23. ¿Cómo procedo?',
+                'ChatGPT Plus': 'Hola, quiero ChatGPT Plus por S/10. ¿Cómo procedo?',
+                'Quillbot Premium': 'Hola, quiero Quillbot Premium por S/10. ¿Cómo procedo?',
+                'Perplexity Pro': 'Hola, quiero Perplexity Pro por S/10. ¿Cómo procedo?',
+                'oferta especial': 'Hola, quiero la OFERTA DEL DÍA: Turnitin + Perplexity GRATIS. ¿Cómo procedo?',
+                'día gratis': 'Hola, quiero conseguir mi día gratis. ¿Qué necesito hacer?',
+                'consulta': 'Hola, tengo una consulta sobre las herramientas.',
+                'general': 'Hola, quiero conseguir acceso a las herramientas para mi tesis. ¿Cómo procedo?'
+            };
+            
+            const message = messages[product] || messages['general'];
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+        
+        function updateCountdown() {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const timeLeft = tomorrow - now;
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                countdownElement.innerHTML = `⏰ Termina en ${hours}h ${minutes}m`;
+            }
+        }
+        
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        function initStickyCTA() {
+            let lastScrollTop = 0;
+            const stickyCTA = document.getElementById('sticky-cta');
+            
+            if (!stickyCTA) return;
+            
+            window.addEventListener('scroll', function() {
+                if (window.innerWidth > 768) return;
+                
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                if (scrollTop > windowHeight && scrollTop < documentHeight - windowHeight - 100) {
+                    if (scrollTop > lastScrollTop) {
+                        stickyCTA.style.transform = 'translateY(0)';
+                    } else {
+                        stickyCTA.style.transform = 'translateY(100%)';
+                    }
+                } else {
+                    stickyCTA.style.transform = 'translateY(100%)';
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
+        
+        function loadTestimonials() {
+            Object.keys(CONFIG.testimonials).forEach((key, index) => {
+                const element = document.getElementById(`testimonio-${index + 1}`);
+                if (element && CONFIG.testimonials[key]) {
+                    element.style.backgroundImage = `url(${CONFIG.testimonials[key]})`;
+                    element.innerHTML = '';
+                    element.onclick = function() {
+                        window.open(CONFIG.testimonials[key], '_blank');
+                    };
+                }
+            });
+        }
+        
+        function loadVideos() {
+            Object.keys(CONFIG.videos).forEach(key => {
+                const element = document.getElementById(`video-${key.replace('_', '-')}`);
+                if (element && CONFIG.videos[key] && !CONFIG.videos[key].includes('VIDEO_YOUTUBE')) {
+                    element.innerHTML = `<iframe width="100%" height="200" src="${CONFIG.videos[key]}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
+                }
+            });
+        }
+
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTestimonials();
+            loadVideos();
+            updateCountdown();
+            initAnimations();
+            initStickyCTA();
+            
+            setInterval(updateCountdown, 60000);
+            
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="https://i.imgur.com/OhLTdmk.png" alt="Tutoria Logo" onerror="this.innerHTML='T'">
+                </div>
+                
+                <h1 class="hero-title">
+                    Las mejores herramientas para tu tesis en un solo lugar y a precio de estudiante
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Accede a WriteHuman, Turnitin, ChatGPT Plus y más por hasta 
+                    <span class="text-urgent">70% menos</span>. 
+                    <span class="text-success">+500 estudiantes</span> ya confían en nosotros.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-whatsapp" onclick="openWhatsApp('general')">
+                        🚀 ¡Conseguir acceso YA!
+                    </a>
+                    <a href="#productos" class="btn btn-outline">
+                        Ver herramientas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title fade-in">Todo lo que necesitas para tu investigación</h2>
